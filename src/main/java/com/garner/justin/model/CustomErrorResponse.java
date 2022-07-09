@@ -9,6 +9,7 @@ import java.util.Objects;
 public class CustomErrorResponse {
 
 
+//    Thanks to Dan at SMU Java Accelerated for this!
     private String errorMessage;
     private int status;
     private String errorCode;

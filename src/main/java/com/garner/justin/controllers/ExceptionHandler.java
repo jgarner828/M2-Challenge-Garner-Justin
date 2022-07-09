@@ -4,16 +4,15 @@ package com.garner.justin.controllers;
 import com.garner.justin.model.CustomErrorResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import java.time.LocalDateTime;
 
 @RestControllerAdvice
-public class ControllerExceptionHandler {
+public class ExceptionHandler {
 
-    @ExceptionHandler(value = {IllegalArgumentException.class})
+    @org.springframework.web.bind.annotation.ExceptionHandler(value = {IllegalArgumentException.class})
     @ResponseStatus(HttpStatus.UNPROCESSABLE_ENTITY)
     public ResponseEntity<CustomErrorResponse> handleOutOfRange(IllegalArgumentException e) {
         CustomErrorResponse error = new CustomErrorResponse(HttpStatus.UNPROCESSABLE_ENTITY.toString(), e.getMessage());
@@ -23,7 +22,7 @@ public class ControllerExceptionHandler {
         return responseEntity;
     }
 
-    @ExceptionHandler(value = {IndexOutOfBoundsException.class})
+    @org.springframework.web.bind.annotation.ExceptionHandler(value = {IndexOutOfBoundsException.class})
     @ResponseStatus(HttpStatus.MOVED_PERMANENTLY)
     public ResponseEntity<CustomErrorResponse> handleIndexOutofBounds(IndexOutOfBoundsException e) {
         CustomErrorResponse error = new CustomErrorResponse(HttpStatus.MOVED_PERMANENTLY.toString(), e.getMessage());
@@ -33,9 +32,9 @@ public class ControllerExceptionHandler {
         return responseEntity;
     }
 
-    @ExceptionHandler(value = {ArithmeticException.class})
+    @org.springframework.web.bind.annotation.ExceptionHandler(value = {ArithmeticException.class})
     @ResponseStatus(HttpStatus.NOT_ACCEPTABLE)
-    public ResponseEntity<CustomErrorResponse> foursAreBadNoMath(ArithmeticException e) {
+    public ResponseEntity<CustomErrorResponse> invalidMath(ArithmeticException e) {
         CustomErrorResponse error = new CustomErrorResponse(HttpStatus.NOT_ACCEPTABLE.toString(), e.getMessage());
         error.setTimestamp(LocalDateTime.now());
         error.setStatus(HttpStatus.NOT_ACCEPTABLE.value());

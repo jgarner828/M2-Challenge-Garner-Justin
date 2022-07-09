@@ -13,7 +13,6 @@ public class Month {
     }
 
     public Month(){
-
     }
 
     public int getNumber() {
