@@ -1,4 +1,4 @@
-package com.garner.demo;
+package com.garner.justin;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

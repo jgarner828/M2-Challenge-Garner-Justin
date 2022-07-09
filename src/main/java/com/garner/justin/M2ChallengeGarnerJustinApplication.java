@@ -1,4 +1,4 @@
-package com.garner.demo;
+package com.garner.justin;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
