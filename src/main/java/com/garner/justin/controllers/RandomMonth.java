@@ -6,9 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Random;
-
-import static com.garner.justin.utils.RandomNumGenerator.generateRandom;
+import static com.garner.justin.utils.RandomNumGenerator.generateRandomMonth;
 
 @RestController
 public class RandomMonth {
@@ -17,7 +15,7 @@ public class RandomMonth {
     @ResponseStatus(HttpStatus.OK)
     public Month getRandomMonth() {
 
-        int monthNumber = generateRandom(12);
+        int monthNumber = generateRandomMonth(12);
 
         switch (monthNumber) {
             case 1:

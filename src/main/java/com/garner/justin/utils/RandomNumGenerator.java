@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class RandomNumGenerator {
 
-    public static int generateRandom(int limit) {
+    public static int generateRandomMonth(int limit) {
         Random random = new Random();
         return random.nextInt(limit) +1;
     }
