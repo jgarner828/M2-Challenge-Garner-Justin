@@ -1,4 +1,4 @@
-package com.garner.justin.utils.controllers;
+package com.garner.justin.controllers;
 
 import com.garner.justin.model.Month;
 import org.springframework.http.HttpStatus;
@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import static org.springframework.http.HttpStatus.UNPROCESSABLE_ENTITY;
 
 
 @RestController
@@ -29,7 +30,7 @@ public class MonthConverter {
             case "10": return new Month(10, "October");
             case "11": return new Month(11, "November");
             case "12": return new Month(12, "December");
-            default: throw new IllegalArgumentException("Not a valid month!");
+            default: throw new IllegalArgumentException("Need a value between 1 and 12");
         }
     }
 }
