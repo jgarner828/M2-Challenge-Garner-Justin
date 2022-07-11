@@ -1,4 +1,4 @@
-package com.garner.justin.controllers;
+package com.garner.justin.utils.controllers;
 
 import com.garner.justin.model.Month;
 import org.springframework.http.HttpStatus;
