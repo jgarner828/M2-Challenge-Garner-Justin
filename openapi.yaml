@@ -1,6 +1,6 @@
 openapi: 3.0.1
 info:
-  title: Module 2 Challenege API Docs
+  title: Module 2 Challenge API Docs
   version: v1.0
 servers:
   - url: http://localhost:8080
