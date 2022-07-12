@@ -1,7 +1,5 @@
 package com.garner.justin.controllers;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.garner.justin.model.Month;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,16 +19,10 @@ public class RandomMonthTest {
     @Autowired
     private MockMvc mockMvc;
 
-    // ObjectMapper used to convert Java objects to JSON and vice versa
-    private ObjectMapper mapper = new ObjectMapper();
-
 
     @Test
     public void shouldReturnRandomMonth() throws Exception {
 
-
-        Month outputSolution = new Month(1, "January");
-        String outputJSON = mapper.writeValueAsString(outputSolution);
 
         // ACT
         mockMvc.perform(
