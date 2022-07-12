@@ -22,6 +22,16 @@ public class ExceptionHandler {
         return responseEntity;
     }
 
+    @org.springframework.web.bind.annotation.ExceptionHandler(value = {RuntimeException.class})
+    @ResponseStatus(HttpStatus.UNPROCESSABLE_ENTITY)
+    public ResponseEntity<CustomErrorResponse> handleOutOfRange(RuntimeException e) {
+        CustomErrorResponse error = new CustomErrorResponse(HttpStatus.UNPROCESSABLE_ENTITY.toString(), e.getMessage());
+        error.setTimestamp(LocalDateTime.now());
+        error.setStatus(HttpStatus.UNPROCESSABLE_ENTITY.value());
+        ResponseEntity<CustomErrorResponse> responseEntity = new ResponseEntity<>(error, HttpStatus.UNPROCESSABLE_ENTITY);
+        return responseEntity;
+    }
+
     @org.springframework.web.bind.annotation.ExceptionHandler(value = {IndexOutOfBoundsException.class})
     @ResponseStatus(HttpStatus.MOVED_PERMANENTLY)
     public ResponseEntity<CustomErrorResponse> handleIndexOutofBounds(IndexOutOfBoundsException e) {
