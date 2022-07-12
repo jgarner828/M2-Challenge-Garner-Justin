@@ -13,7 +13,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringRunner.class)
-@WebMvcTest(MonthConverter.class)
+@WebMvcTest(RandomMonth.class)
 public class RandomMonthTest {
 
 
@@ -34,9 +34,9 @@ public class RandomMonthTest {
 
         // ACT
         mockMvc.perform(
-                        get("/month/1")                            // Perform the POST request.
+                        get("/randomMonth")                            // Perform the POST request.
                 )
                 .andDo(print())                                // Print results to console.
-                .andExpect(status().isOk());        // ASSERT that what we're expecting is what we got back.
+                .andExpect(status().isCreated());        // ASSERT that what we're expecting is what we got back.
     }
 }

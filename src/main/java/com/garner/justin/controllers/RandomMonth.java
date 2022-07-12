@@ -12,7 +12,7 @@ import static com.garner.justin.utils.RandomNumGenerator.generateRandomMonth;
 public class RandomMonth {
 
     @GetMapping("/randomMonth")
-    @ResponseStatus(HttpStatus.OK)
+    @ResponseStatus(HttpStatus.CREATED)
     public Month getRandomMonth() {
 
         int monthNumber = generateRandomMonth(12);
